@@ -1,11 +1,11 @@
 /*
   --------------------------------------------------------------------------------------
-  Função para obter a lista existente do servidor via requisição GET
+  Função para obter a lista de livros existente no banco de dados do servidor via requisição GET
   --------------------------------------------------------------------------------------
 */
  const getList = async () => {
   
-    fetch('http://localhost:5000/livros', {method: 'GET',})
+    fetch('http://localhost:5000/lista_livros', {method: 'GET',})
 
       .then(response => response.json())
       .then(data => {data.livros.forEach(item => insertList(item.nome, item.autor, item.genero, item.status))})
@@ -34,7 +34,7 @@
     formData.append('status', inputStatus);
   
     
-    fetch('http://localhost:5000/livro', {method: 'POST', body: formData})
+    fetch('http://localhost:5000/adicionar_livro', {method: 'POST', body: formData})
 
       .then(response => response.json())
       .catch(error => {console.error('Error:', error)});
@@ -50,7 +50,7 @@
   const deleteItem = (item) => {
     console.log(item)
   
-    fetch('http://localhost:5000/livro?nome=' + item, {method: 'DELETE'})
+    fetch('http://localhost:5000/deletar_livro?nome=' + item, {method: 'DELETE'})
 
       .then(response => response.json())
       .catch(error => {console.error('Error:', error)});
