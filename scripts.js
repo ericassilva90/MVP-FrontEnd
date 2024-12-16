@@ -79,7 +79,6 @@
 
 const removeElement = () => {
   let close = document.getElementsByClassName("close");
-  // var table = document.getElementById('myTable');
   let i;
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function () {
@@ -133,13 +132,10 @@ const removeElement = () => {
     // Criar células e adicionar os dados
     const celulaNome = linha.insertCell();
     celulaNome.textContent = nome;
-
     const celulaAutor = linha.insertCell();
-    celulaAutor.textContent = autor;
-  
+    celulaAutor.textContent = autor;  
     const celulaGenero = linha.insertCell();
     celulaGenero.textContent = genero;
-
     const celulaStatus = linha.insertCell();
     celulaStatus.textContent = status;
 
@@ -152,7 +148,7 @@ const removeElement = () => {
     document.getElementById('status').value = '';
   
   
-  
+   //Chamar a funcao removeElement ao clicar no botao de exclusão
     removeElement()
 
   }
